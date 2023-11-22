@@ -3,30 +3,30 @@ const mongoose = require("mongoose");
 const BootcampSchema = mongoose.Schema({
     title:{
         type: String,
-        required: [true,
-             ""],
-        unique: true, 
-        maxlength: [100, "titulo del curso no mayor a 50"]
+        required: [true,""],
+        maxlength: [30, "titulo del curso maximo 30"],
+        minlenght: [10, "titulo del curso minimo 10"]
+
     },
     description:{
         type: String,
         required: [true, ""],
-        unique: true,
-        maxlength: [100, "Descripcion del curso no mayor a 50"]
+        minlength: [10, "Descripcion del curso minimo 10"]
     },
     weeks:{
         type:Number,
-        maxlength:[10, "Semana no mayor a 10 numeros"]
+        required: [true, ""],
+        max:[9, "Semana no mayor a 9"]
     },
-    tuition:{
+    enroll_cost:{
         type:Number,
-        maxlength:[10, "No mayor a 10 numeros"]
+        required: [true, ""]
     },
     minimumSkill:{
         type:[String],
         required: [true, 
             "Alguna de las opciones requeridas"],
-        enum:["beniiger","Intermediate","Advance"]
+        enum:["beniiger","Intermediate","Advance", "Expert"]
         }
 })
 
